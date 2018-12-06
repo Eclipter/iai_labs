@@ -9,9 +9,6 @@ def train_net(image_file, m=5, n=5, p=50, e=0.2, alpha=0.001, max_iter=2500):
     np.random.seed(1)
 
     filtered_filename = "".join([c for c in image_file if c.isalnum()])
-    execution_id = f'file={filtered_filename}_m={m}_n={n}_p={p}'
-
-    print(execution_id)
 
     image = mpimg.imread(image_file)
     height, width, S = image.shape
@@ -25,6 +22,9 @@ def train_net(image_file, m=5, n=5, p=50, e=0.2, alpha=0.001, max_iter=2500):
     N = m * n * S  # vector length
     L = blocks.shape[0]  # blocks count
     Z = (N * L) / ((N + L) * p + 2)  # zip coefficient
+
+    execution_id = f'filename={filtered_filename}_m={m}_n={n}_p={p}_N={N}_L={L}'
+    print(execution_id)
 
     np.random.shuffle(blocks)
 
@@ -62,8 +62,8 @@ def train_net(image_file, m=5, n=5, p=50, e=0.2, alpha=0.001, max_iter=2500):
             error += partial_e
         error /= L
         print(f"Iteration: {iteration} Total Error:{error:010.6f}")
-    np.save(os.path.join('weights', f'weights_{execution_id}'), W)
-    np.save(os.path.join('weights', f'weights_back_{execution_id}'), W_)
+    np.save(os.path.join('weights', f'weights_first_{execution_id}'), W)
+    np.save(os.path.join('weights', f'weights_second_{execution_id}'), W_)
     return W, W_, execution_id, iteration, error, L, Z
 
 
