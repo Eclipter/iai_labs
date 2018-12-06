@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 
 
-def train_net(image_file, m=5, n=5, p=50, e=0.2, alpha=0.001, max_iter=2500):
+def train_network(image_file, m=5, n=5, p=50, e=0.2, alpha=0.001, max_iterations=2500):
     np.random.seed(1)
 
     filtered_filename = "".join([c for c in image_file if c.isalnum()])
@@ -35,7 +35,7 @@ def train_net(image_file, m=5, n=5, p=50, e=0.2, alpha=0.001, max_iter=2500):
     print(f"Blocks numb: {L} Compression: {Z} Target Error: {e:010.6f}")
 
     iteration = 0
-    while error > e and iteration <= max_iter:
+    while error > e and iteration <= max_iterations:
         iteration += 1
         for i, X in enumerate(blocks):
             Y = X @ W
@@ -71,8 +71,8 @@ def block_image(img, m, n):
     img = img.copy()
     h, w = img.shape[:2]
 
-    last_orig_block_end_w, overlay_block_start_w = count_block_borders(w, n)
-    last_orig_block_end_h, overlay_block_start_h = count_block_borders(h, m)
+    last_orig_block_end_w, overlay_block_start_w = calculate_last_block_borders(w, n)
+    last_orig_block_end_h, overlay_block_start_h = calculate_last_block_borders(h, m)
 
     img = np.hstack((img[:, :last_orig_block_end_w], img[:, overlay_block_start_w:]))
     img = np.vstack((img[:last_orig_block_end_h, :], img[overlay_block_start_h:]))
@@ -85,8 +85,8 @@ def restore_image(blocks, m, n, s, h, w):
     blocks = blocks.copy()
 
     blocks.shape = (-1, m, n, s)
-    last_orig_block_end_w, overlay_block_start_w = count_block_borders(w, n)
-    last_orig_block_end_h, overlay_block_start_h = count_block_borders(h, m)
+    last_orig_block_end_w, overlay_block_start_w = calculate_last_block_borders(w, n)
+    last_orig_block_end_h, overlay_block_start_h = calculate_last_block_borders(h, m)
 
     h_blocks_count = (last_orig_block_end_h + m) // m
     w_blocks_count = (last_orig_block_end_w + n) // n
@@ -112,7 +112,7 @@ def uncompress_image(blocks, W_, m, n, s, h, w):
     return ((img - img.min()) / value_range * 255.0).astype(np.uint8)
 
 
-def count_block_borders(img_length, block_length):
+def calculate_last_block_borders(img_length, block_length):
     return img_length - img_length % block_length, img_length - block_length
 
 
@@ -139,7 +139,7 @@ def train_and_show(image_file, W, W_, m, n):
     draw_images(image, uncompressed_image, clean_file_name)
 
 
-def test_iterations_on_neurons():
+def test_iterations_by_neurons_count():
     e = 0.25
     m = 5
     n = 5
@@ -147,7 +147,7 @@ def test_iterations_on_neurons():
     p_seq = [30 + x * 5 for x in range(10)]
     results = []
     for p in p_seq:
-        W, W_, run_id, iteration, error, L, Z = train_net('images/drones_150x150.jpg', m, n, p, e, alpha)
+        W, W_, run_id, iteration, error, L, Z = train_network('images/drones_150x150.jpg', m, n, p, e, alpha)
         results.append((p, Z, iteration))
 
     plt.plot([r[1] for r in results], [r[2] for r in results], color='r', marker='.', linestyle='None')
@@ -158,7 +158,7 @@ def test_iterations_on_neurons():
     return results
 
 
-def test_iterations_on_alpha():
+def test_iterations_by_alpha():
     e = 0.2
     m = 5
     n = 5
@@ -167,7 +167,7 @@ def test_iterations_on_alpha():
     results = []
     for alpha in alpha_seq:
         print("Alpha: " + str(alpha))
-        W, W_, run_id, iteration, error, L, Z = train_net('images/sim_ther_200x200.jpg', m, n, p, e, alpha)
+        W, W_, run_id, iteration, error, L, Z = train_network('images/sim_ther_200x200.jpg', m, n, p, e, alpha)
         results.append((alpha, iteration))
 
     plt.plot([r[0] for r in results], [r[1] for r in results], color='r', marker='.', linestyle='None')
@@ -178,7 +178,7 @@ def test_iterations_on_alpha():
     return results
 
 
-def test_iterations_on_files():
+def test_iterations_by_files():
     e = 0.2
     m = 5
     n = 5
@@ -191,13 +191,13 @@ def test_iterations_on_files():
     ]
     results = []
     for img in images:
-        W, W_, run_id, iteration, error, L, Z = train_net(img, m, n, p, e, alpha)
+        W, W_, run_id, iteration, error, L, Z = train_network(img, m, n, p, e, alpha)
         train_and_show(img, W, W_, m, n)
         results.append((img, iteration))
     return results
 
 
-def test_iterations_on_error():
+def test_iterations_by_target_error():
     m = 5
     n = 5
     p = 50
@@ -205,7 +205,7 @@ def test_iterations_on_error():
     e_seq = [0.1 + 0.05 * x for x in range(5)]
     results = []
     for e in e_seq:
-        W, W_, run_id, iteration, error, L, Z = train_net('images/sim_ther_200x200.jpg', m, n, p, e, alpha)
+        W, W_, run_id, iteration, error, L, Z = train_network('images/sim_ther_200x200.jpg', m, n, p, e, alpha)
         results.append((e, iteration))
 
     plt.plot([r[0] for r in results], [r[1] for r in results], color='r', marker='.', linestyle='None')
@@ -220,15 +220,15 @@ def main():
     # print(test_iterations_on_neurons())
     # print(test_iterations_on_files())
     # print(test_iterations_on_alpha())
-    print(test_iterations_on_error())
+    # print(test_iterations_on_error())
 
-    file = 'images/drones_150x150.jpg'
+    file = 'images/sim_ther_200x200.jpg'
     m = 5
     n = 5
     p = 50
     e = 0.2
     alpha = 0.001
-    W, W_, execution_id, iteration, error, L, Z = train_net(file, m, n, p, e, alpha)
+    W, W_, execution_id, iteration, error, L, Z = train_network(file, m, n, p, e, alpha)
     train_and_show(file, W, W_, m, n)
 
 
