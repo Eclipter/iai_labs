@@ -1,0 +1,112 @@
+D:\Python36\python.exe C:\Users\User\.IntelliJIdea2018.2\config\plugins\python\helpers\pydev\pydevconsole.py 64441 64442
+import sys; print('Python %s on %s' % (sys.version, sys.platform))
+sys.path.extend(['D:\\PyCharmProjects\\iai_labs', 'D:/PyCharmProjects/iai_labs'])
+PyDev console: starting.
+Python 3.6.5 (v3.6.5:f59c0932b4, Mar 28 2018, 17:00:18) [MSC v.1900 64 bit (AMD64)] on win32
+runfile('D:/PyCharmProjects/iai_labs/main.py', wdir='D:/PyCharmProjects/iai_labs')
+file=imagesdrones150x150jpg_m=5_n=5_p=30
+Blocks numb: 961 Compression: 2.3188662248246574 Target Error: 000.250000
+Iteration: 1 Total Error:001.387574
+Iteration: 2 Total Error:000.914699
+Iteration: 3 Total Error:000.673842
+Iteration: 4 Total Error:000.545854
+Iteration: 5 Total Error:000.468759
+Iteration: 6 Total Error:000.418331
+Iteration: 7 Total Error:000.383216
+Iteration: 8 Total Error:000.357330
+Iteration: 9 Total Error:000.337274
+Iteration: 10 Total Error:000.321092
+Iteration: 11 Total Error:000.307601
+Iteration: 12 Total Error:000.296047
+Iteration: 13 Total Error:000.285928
+Iteration: 14 Total Error:000.276900
+Iteration: 15 Total Error:000.268722
+Iteration: 16 Total Error:000.261224
+Iteration: 17 Total Error:000.254282
+Iteration: 18 Total Error:000.247804
+file=imagesdrones150x150jpg_m=5_n=5_p=35
+Blocks numb: 961 Compression: 1.9876178920081629 Target Error: 000.250000
+Iteration: 1 Total Error:000.977785
+Iteration: 2 Total Error:000.545466
+Iteration: 3 Total Error:000.447620
+Iteration: 4 Total Error:000.398778
+Iteration: 5 Total Error:000.363162
+Iteration: 6 Total Error:000.334798
+Iteration: 7 Total Error:000.311744
+Iteration: 8 Total Error:000.292814
+Iteration: 9 Total Error:000.277123
+Iteration: 10 Total Error:000.263968
+Iteration: 11 Total Error:000.252783
+Iteration: 12 Total Error:000.243122
+file=imagesdrones150x150jpg_m=5_n=5_p=40
+Blocks numb: 961 Compression: 1.7391776458665122 Target Error: 000.250000
+Iteration: 1 Total Error:000.856794
+Iteration: 2 Total Error:000.508767
+Iteration: 3 Total Error:000.411534
+Iteration: 4 Total Error:000.361513
+Iteration: 5 Total Error:000.326873
+Iteration: 6 Total Error:000.300312
+Iteration: 7 Total Error:000.279161
+Iteration: 8 Total Error:000.261951
+Iteration: 9 Total Error:000.247655
+file=imagesdrones150x150jpg_m=5_n=5_p=45
+Blocks numb: 961 Compression: 1.5459439749474497 Target Error: 000.250000
+Iteration: 1 Total Error:000.863445
+Iteration: 2 Total Error:000.509168
+Iteration: 3 Total Error:000.386465
+Iteration: 4 Total Error:000.326820
+Iteration: 5 Total Error:000.289784
+Iteration: 6 Total Error:000.263380
+Iteration: 7 Total Error:000.243145
+file=imagesdrones150x150jpg_m=5_n=5_p=50
+Blocks numb: 961 Compression: 1.3913555461179106 Target Error: 000.250000
+Iteration: 1 Total Error:000.740880
+Iteration: 2 Total Error:000.413286
+Iteration: 3 Total Error:000.328122
+Iteration: 4 Total Error:000.282186
+Iteration: 5 Total Error:000.250660
+Iteration: 6 Total Error:000.227101
+file=imagesdrones150x150jpg_m=5_n=5_p=55
+Blocks numb: 961 Compression: 1.264873117826682 Target Error: 000.250000
+Iteration: 1 Total Error:000.587423
+Iteration: 2 Total Error:000.414841
+Iteration: 3 Total Error:000.350399
+Iteration: 4 Total Error:000.302096
+Iteration: 5 Total Error:000.264772
+Iteration: 6 Total Error:000.236160
+file=imagesdrones150x150jpg_m=5_n=5_p=60
+Blocks numb: 961 Compression: 1.1594704160097808 Target Error: 000.250000
+Iteration: 1 Total Error:000.459748
+Iteration: 2 Total Error:000.347522
+Iteration: 3 Total Error:000.294591
+Iteration: 4 Total Error:000.257519
+Iteration: 5 Total Error:000.229911
+file=imagesdrones150x150jpg_m=5_n=5_p=65
+Blocks numb: 961 Compression: 1.0702830328769564 Target Error: 000.250000
+Iteration: 1 Total Error:000.439816
+Iteration: 2 Total Error:000.323212
+Iteration: 3 Total Error:000.268778
+Iteration: 4 Total Error:000.234559
+file=imagesdrones150x150jpg_m=5_n=5_p=70
+Blocks numb: 961 Compression: 0.9938363531066435 Target Error: 000.250000
+Iteration: 1 Total Error:000.391646
+Iteration: 2 Total Error:000.319121
+Iteration: 3 Total Error:000.272029
+Iteration: 4 Total Error:000.238771
+file=imagesdrones150x150jpg_m=5_n=5_p=75
+Blocks numb: 961 Compression: 0.927582301613858 Target Error: 000.250000
+Iteration: 1 Total Error:000.393892
+Iteration: 2 Total Error:000.318886
+Iteration: 3 Total Error:000.272751
+Iteration: 4 Total Error:000.242433
+[(30, 2.3188662248246574, 18), (35, 1.9876178920081629, 12), (40, 1.7391776458665122, 9), (45, 1.5459439749474497, 7), (50, 1.3913555461179106, 6), (55, 1.264873117826682, 6), (60, 1.1594704160097808, 5), (65, 1.0702830328769564, 4), (70, 0.9938363531066435, 4), (75, 0.927582301613858, 4)]
+file=imagesdrones150x150jpg_m=5_n=5_p=50
+Blocks numb: 961 Compression: 1.3913555461179106 Target Error: 000.200000
+Iteration: 1 Total Error:000.740880
+Iteration: 2 Total Error:000.413286
+Iteration: 3 Total Error:000.328122
+Iteration: 4 Total Error:000.282186
+Iteration: 5 Total Error:000.250660
+Iteration: 6 Total Error:000.227101
+Iteration: 7 Total Error:000.208528
+Iteration: 8 Total Error:000.193319
